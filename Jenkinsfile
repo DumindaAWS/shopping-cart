@@ -12,7 +12,7 @@ pipeline {
     stages {
         stage('Git Checkout') {
             steps {
-                git branch: 'main', changelog: false, credentialsId: '15fb69c3-3460-4d51-bd07-2b0545fa5151', poll: false, url: 'https://github.com/DumindaAWS/shopping-cart.git'
+                git branch: 'main', changelog: false, credentialsId: '9deec83f-f312-44a0-aa36-226885ab73f1', poll: false, url: 'https://github.com/DumindaAWS/shopping-cart.git'
             }
         }
         
