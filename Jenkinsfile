@@ -32,9 +32,9 @@ pipeline {
         stage('Sonarqube') {
             steps {
                 withSonarQubeEnv('sonar-scaner'){
-                   sh ''' $SCANNER_HOME/bin/sonar-scaner -Dsonar.projectName=Shopping-Cart \
+                   sh ''' $SCANNER_HOME/bin/sonar-scaner -Dsonar.projectName=web-cicd \
                    -Dsonar.java.binaries=. \
-                   -Dsonar.projectKey=Shopping-Cart '''
+                   -Dsonar.projectKey=web-cicd '''
                }
             }
         }
