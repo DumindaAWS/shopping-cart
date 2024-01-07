@@ -52,7 +52,7 @@ pipeline {
                         
                         sh "docker build -t shopping-cart -f docker/Dockerfile ."
                         sh "docker tag  shopping-cart adijaiswal/shopping-cart:latest"
-                        sh "docker push adijaiswal/shopping-cart:latest"
+                        sh "docker push xxadijaiswal/shopping-cart:latest"
                     }
                 }
             }
