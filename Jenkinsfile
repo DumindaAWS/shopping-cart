@@ -48,11 +48,11 @@ pipeline {
         stage('Docker Build & Push') {
             steps {
                 script{
-                    withDockerRegistry(credentialsId: '2fe19d8a-3d12-4b82-ba20-9d22e6bf1672', toolName: 'docker') {
+                    withDockerRegistry(credentialsId: 'e8846a3d-b55e-4f62-bab1-5feca7051966', toolName: 'docker') {
                         
-                        sh "docker build -t shopping-cart -f docker/Dockerfile ."
-                        sh "docker tag  shopping-cart adijaiswal/shopping-cart:latest"
-                        sh "docker push xxadijaiswal/shopping-cart:latest"
+                        sh "docker build -t shopping-cart2 -f docker/Dockerfile ."
+                        sh "docker tag  shopping-cart2 duminda/shopping-cart2:latest"
+                        sh "docker push duminda/shopping-cart2:latest"
                     }
                 }
             }
