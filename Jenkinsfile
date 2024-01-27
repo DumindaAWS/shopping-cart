@@ -7,6 +7,7 @@ pipeline {
     
     environment{
         SCANNER_HOME= tool 'sonar-scaner'
+        IMAGE_TAG= "$BUILD_NUMBER"
     }
     
     stages {
@@ -51,8 +52,8 @@ pipeline {
                     withDockerRegistry(credentialsId: 'e8846a3d-b55e-4f62-bab1-5feca7051966', toolName: 'docker') {
                         
                         sh "docker build -t shopping-cart4 -f docker/Dockerfile ."
-                        sh "docker tag  shopping-cart4 duminda/shopping-cart4:latest"
-                        sh "docker push duminda/shopping-cart4:latest"
+                        sh "docker tag  shopping-cart4 duminda/shopping-cart4:$IMAGE_TAG"
+                        sh "docker push duminda/shopping-cart4:$IMAGE_TAG"
                     }
                 }
             }
