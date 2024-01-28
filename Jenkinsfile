@@ -8,6 +8,7 @@ pipeline {
     environment{
         SCANNER_HOME= tool 'sonar-scaner'
         IMAGE_TAG= "$BUILD_NUMBER"
+        JENKINS_API_TOKEN = credentials("JENKINS_API_TOKEN")
     }
     
     stages {
@@ -58,7 +59,13 @@ pipeline {
                 }
             }
         }
-        
+        stage("Trigger CD Pipeline") {
+            steps {
+                script {
+                    sh "curl -v -k --user dumindaj:${JENKINS_API_TOKEN} -X POST -H 'cache-control: no-cache' -H 'content-type: application/x-www-form-urlencoded' --data 'IMAGE_TAG=${IMAGE_TAG}' '3.88.37.140:8080/job/gitops-app/buildWithParameters?token=gitops-token'"
+                }
+            }
+       
         
     }
 }
