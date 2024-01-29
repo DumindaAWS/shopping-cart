@@ -62,7 +62,7 @@ pipeline {
         stage("Trigger CD Pipeline-gitops-app in jenkins") {
             steps {
                 script {
-                    sh "curl -v -k --user dumindaj:${JENKINS_API_TOKEN} -X POST -H 'cache-control: no-cache' -H 'content-type: application/x-www-form-urlencoded' --data 'IMAGE_TAG=${IMAGE_TAG}' '3.88.37.140:8080/job/gitops-app/buildWithParameters?token=gitops-token'"
+                    sh "curl -v -k --user dumindaj:${JENKINS_API_TOKEN} -X POST -H 'cache-control: no-cache' -H 'content-type: application/x-www-form-urlencoded' --data 'IMAGE_TAG=${IMAGE_TAG}' '3.85.124.86:8080/job/gitops-app/buildWithParameters?token=gitops-token'"
                 }
             }
        
